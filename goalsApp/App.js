@@ -23,9 +23,9 @@ function addGoalHandler() {
       <TextInput style={styles.textInput} placeholder='enter your goals!' onChangeText={goalHandler}/>
       <Button title='add goal' onPress={addGoalHandler}/>
       </View>
+      {/* to see the rounded corner on android this is the change, this will not work for ios */}
       <View style={styles.goalsContainer}>
-        <Text>List of goals..</Text>
-        {coursegoals.map ((goals)=><Text key={goals}>{goals}</Text>)}
+        {coursegoals.map ((goals)=><Text style={styles.goalItem} key={goals}>{goals}</Text>)}
       </View>
     </View>
   );
@@ -55,6 +55,13 @@ const styles = StyleSheet.create({
   },
   goalsContainer:{
     flex:3,
+  },
+  goalItem:{
+    margin: 8,
+    padding:8,
+    borderRadius:6,//rounded corner
+    backgroundColor:"#5e0acc",
+    color:"white"
   }
 
 });
