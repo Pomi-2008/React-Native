@@ -42,9 +42,6 @@ const styles = StyleSheet.create({
         textAlign:'center',
         color:'white'
     },
-    detailText:{
-        color:'white'
-    },
     subtitle:{
         color:'white',
         fontSize:18,
