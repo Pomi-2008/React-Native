@@ -1,10 +1,10 @@
 import { View, Text,StyleSheet } from 'react-native';
 
-function MealDetails({duration,complexity,affordability,styles, textStyle }){
-        <View>
-            <Text >{duration}m</Text>
-            <Text >{complexity}</Text>
-            <Text>{affordability}</Text>
+function MealDetails({duration,complexity,affordability,style, textStyle }){
+        <View style={[styles.details,style]}>
+            <Text style={[styles.detailsItem,textStyle]}>{duration}m</Text>
+            <Text style={[styles.detailsItem,textStyle]}>{complexity}</Text>
+            <Text style={[styles.detailsItem,textStyle]}>{affordability}</Text>
         </View>
     }
 
