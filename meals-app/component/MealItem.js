@@ -1,9 +1,22 @@
 import { View,Text,Pressable,StyleSheet,Image,Platform } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
-function MealItem({ title,imageUrl,duration,complexity,affordability }){
+function MealItem({ id, title,imageUrl,duration,complexity,affordability }){
+    const navigation = useNavigation();
+
+    function selectMealItemHandler(){
+        navigation.navigate('MealsDetails', {
+        mealId:id,
+    })
+    };
+    
+    
+    
     return (
         <View style={styles.mealItem}>
-        <Pressable>
+        <Pressable 
+        onPress={selectMealItemHandler}
+        >
             <View style={styles.innerContainer}>
             <View>
                 <Image source={{ uri: imageUrl }} style={styles.image} />
@@ -26,14 +39,13 @@ const styles = StyleSheet.create({
     mealItem:{
         margin:16,
         borderRadius:8,
-        overflow:'hidden',
         backgroundColor:'white',
         elevation:4,
         shadowColor:'black',
         shadowOpacity:0.35,
         shadowOffset:{width:0, height:2},
         shadowRadius:8,
-        verflow:Platform.OS === "android" ? 'hidden': 'visible'
+        overflow:Platform.OS === "android" ? 'hidden': 'visible'
     },
     innerContainer:{
         borderRadius:8,
